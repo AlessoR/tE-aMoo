@@ -1,1 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Amor</title>
+    <style>
+        /* Estilos del fondo y el cuerpo */
+        body {
+            background: linear-gradient(to bottom, #ff99cc, #ff66b2);
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            color: #fff;
+        }
 
+        /* Contenedor principal de la carta */
+        .card {
+            background: #fff;
+            color: #ff4d6d;
+            border-radius: 20px;
+            padding: 40px;
+            width: 350px;
+            max-width: 90%;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            text-align: center;
+            font-size: 1.2rem;
+            animation: popIn 1s ease-out;
+        }
+
+        /* Animación de entrada de la carta */
+        @keyframes popIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Estilo para los corazones flotantes */
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            color: #ff4d6d;
+            animation: floatingHeart 4s infinite linear;
+        }
+
+        @keyframes floatingHeart {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100px); opacity: 0; }
+        }
+
+        /* Para los dispositivos pequeños */
+        @media (max-width: 600px) {
+            .card {
+                width: 90%;
+                padding: 20px;
+                font-size: 1rem;
+            }
+        }
+
+        .te-amo-text {
+            margin: 10px 0;
+            font-family: 'Arial', sans-serif;
+            display: none;
+        }
+
+        .hidden-text {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Te Amo 💖</h1>
+        <div class="te-amo-text" id="textPart1">
+            Mi vida, hay tantas cosas bonitas que quiero decirte, porque sin duda te mereces todo lo bonito del mundo. Estuve pensando, ¿qué hice para tener una persona tan linda como tú? Cada vez que me llega un mensaje tuyo me pone muy feliz, aunque no hablemos mucho en el transcurso del día, tus mensajes me hacen tan feliz. Lo único que me faltaría es llorar de la felicidad al sentir esa gran alegría. Tú eres lo más preciado que Dios me mandó y lo agradezco por haberte puesto en mi vida.
+        </div>
+        <div class="te-amo-text" id="textPart2">
+            ¿Sabes lo que más me encantaría? Poder estar contigo, darte muchos, pero muchos besitos y mimos. Aunque, lastimosamente, estamos lejos, quiero que sepas que a pesar de la distancia, yo siempre estaré para ti. Porque eres y serás por siempre mi persona favorita. Me gusta todo de ti, eres una persona maravillosa, increíble, en pocas palabras, y no quiero que dejes que alguien diga lo contrario.
+        </div>
+        <div class="te-amo-text" id="textPart3">
+            Gracias por hacerme la persona más feliz del mundo. No sé cómo escribir lo que siento por ti, un simple te amo no es suficiente. En serio, mi amor, te agradezco por todo (no me estoy despidiendo, mi amor, no pienses en eso, por favor). Agradezco que estés conmigo a pesar de todo. Agradezco que siempre me saques una sonrisa con tus mensajes lindos. Aunque a veces no tengamos temas de conversación, aun así siempre amaré hablar contigo.
+        </div>
+    </div>
+
+    <!-- Corazones flotantes -->
+    <script>
+        // Función para crear corazones flotantes aleatorios
+        function createFloatingHearts() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';  // Posición horizontal aleatoria
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';  // Duración aleatoria
+            document.body.appendChild(heart);
+
+            // Eliminar el corazón después de su animación
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);  // Tiempo de duración de la animación
+        }
+
+        setInterval(createFloatingHearts, 500);  // Crear corazones flotantes cada 500ms
+
+        // Mostrar las partes del mensaje gradualmente
+        setTimeout(() => {
+            document.getElementById('textPart1').style.display = 'block';
+        }, 1000);
+
+        setTimeout(() => {
+            document.getElementById('textPart2').style.display = 'block';
+        }, 5000);
+
+        setTimeout(() => {
+            document.getElementById('textPart3').style.display = 'block';
+        }, 9000);
+
+    </script>
+
+</body>
+</html>
